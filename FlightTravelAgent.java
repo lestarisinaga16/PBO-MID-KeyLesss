@@ -7,13 +7,16 @@ public class FlightTravelAgent {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //Menambahkan beberapa rute awal
-        addRute {"Jakarta - Surabaya"};
-        addRute {"Bandung - bali"};
-        addRute {"Medan - Bali"};
+        //menambahkan beberapa rute awal
+        addRute("Jakarta - Surabaya");
+        addRute("Bandung - Bali");
+        addRute("Medan - Bali");
 
         showMainMenu();
     }
+
+
+
 
 
     public static void showPassengerInfo() {
