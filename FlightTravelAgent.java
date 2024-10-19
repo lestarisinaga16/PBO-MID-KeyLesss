@@ -88,13 +88,23 @@ public class FlightTravelAgent {
 
     public static void addRute(String route) {
         resizeArrayIfFull(rute);
-        for {int i = 0; i < rute.length; i++}{
-            if (rute[i] == null);
-                rute[i] == route;
-            System.out.println("Rute berhasil ditambahkan.");
-            break;
+        for ( int i = 0; i < rute.length; i++){
+            if (rute[i] == null){
+                rute[i] = route;
+                System.out.println("Rute berhasil ditambahkan.");
+                break;
+            }
         }
 
+    }
+
+    public static void editRute(Integer number, String newRoute ) {
+        if (number <= 0 || number > rute.length || rute[number - 1] == null){
+            System.out.println("Rute tidak valid.");
+        } else {
+            rute[number - 1] = newRoute;
+            System.out.println("Rute berhasil diedit.");
+        }
     }
     public static void editPassengerInfo(Integer number) {
         if (number <= 0 || number > passengerInfo.length || passengerInfo[number - 1][0] == null) {
