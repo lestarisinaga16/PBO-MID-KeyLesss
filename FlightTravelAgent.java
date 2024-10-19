@@ -2,15 +2,22 @@ import java.util.Scanner;
 
 public class FlightTravelAgent {
 
-    public static String[] rute =new String[3];
-    public static String[][] passengerInfo = new String[10][10];;// Informasi pemesan: nama, tanggal lahir, nomor KTP
+    public static String[] rute = new String[3];
+    public static String[][] passengerInfo = new String[10][10];
+    ;// Informasi pemesan: nama, tanggal lahir, nomor KTP
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         //Menambahkan beberapa rute awal
-        addRute {"Jakarta - Surabaya"};
-        addRute {"Bandung - bali"};
-        addRute {"Medan - Bali"};
+        addRute {
+            "Jakarta - Surabaya"
+        } ;
+        addRute {
+            "Bandung - bali"
+        } ;
+        addRute {
+            "Medan - Bali"
+        } ;
 
         showMainMenu();
     }
@@ -65,7 +72,30 @@ public class FlightTravelAgent {
         }
     }
 
+    public static void showRute() {
+        System.out.println("DAFTAR RUTE PENERBANGAN: ");
+        boolean isAnyRouteAvailable = false;
 
+        for (int i = 0; i < rute.length; i++) {
+            System.out.println(i + 1) + ". " + rute[i];
+            isAnyRouteAvailable = true;
+
+        }
+    }
+    if(!isAnyRouteAvailable){
+        System.out.println("Tidak ada rute yang tersedia.");
+    }
+
+    public static void addRute(String route) {
+        resizeArrayIfFull(rute);
+        for {int i = 0; i < rute.length; i++}{
+            if (rute[i] == null);
+                rute[i] == route;
+            System.out.println("Rute berhasil ditambahkan.");
+            break;
+        }
+
+    }
     public static void editPassengerInfo(Integer number) {
         if (number <= 0 || number > passengerInfo.length || passengerInfo[number - 1][0] == null) {
             System.out.println("Informasi tidak valid.");
