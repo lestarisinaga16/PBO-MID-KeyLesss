@@ -229,7 +229,7 @@ public class FlightTravelAgent {
                     showRute();
                     String routeNumToedit = input("Pilih nomor rute yang akan diedit");
                     String updateRoute = input("Masukan rute baru");
-                    editRute(Integer.parseInt(routeNumToedit), updateRoute);
+                    editRute(Integer.parseInt(routeNumToEdit), updateRoute);
                     break;
                 case "6":
                     showRute();
