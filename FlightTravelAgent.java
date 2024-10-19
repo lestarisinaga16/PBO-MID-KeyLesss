@@ -9,15 +9,9 @@ public class FlightTravelAgent {
 
     public static void main(String[] args) {
         //Menambahkan beberapa rute awal
-        addRute {
-            "Jakarta - Surabaya"
-        } ;
-        addRute {
-            "Bandung - bali"
-        } ;
-        addRute {
-            "Medan - Bali"
-        } ;
+        addRute {"Jakarta - Surabaya"} ;
+        addRute {"Bandung - bali"} ;
+        addRute {"Medan - Bali"} ;
 
         showMainMenu();
     }
@@ -76,16 +70,17 @@ public class FlightTravelAgent {
         System.out.println("DAFTAR RUTE PENERBANGAN: ");
         boolean isAnyRouteAvailable = false;
 
-        for (int i = 0; i < rute.length; i++) {
-            System.out.println(i + 1) + ". " + rute[i];
-            isAnyRouteAvailable = true;
-
+        for(int i = 0; i < rute.length; i++){
+            if(rute[i] !=null){
+                System.out.println((i +1) + ". " + rute[i]);
+                isAnyRouteAvailable = true;
+            }
         }
-    }
-    if(!isAnyRouteAvailable){
-        System.out.println("Tidak ada rute yang tersedia.");
-    }
+        if (!isAnyRouteAvailable){
+            System.out.println("Tidak ada rute yang tersedia.");
+        }
 
+    }
     public static void addRute(String route) {
         resizeArrayIfFull(rute);
         for ( int i = 0; i < rute.length; i++){
@@ -106,6 +101,20 @@ public class FlightTravelAgent {
             System.out.println("Rute berhasil diedit.");
         }
     }
+
+    public static void removeRute(Integer number) {
+        if (number <= 0 || number> rute.length || rute[number - 1] == null) {
+            System.out.println("Rute tidak valid.");
+        } else {
+            for (int i = number - 1; i < rute.length - 1; i++) {
+                rute[i] = rute[i + 1];
+            }
+            rute[rute.length - 1] = null;
+            System.out.println("Rute berhasil dihapus.");
+        }
+
+    }
+
     public static void editPassengerInfo(Integer number) {
         if (number <= 0 || number > passengerInfo.length || passengerInfo[number - 1][0] == null) {
             System.out.println("Informasi tidak valid.");
@@ -208,16 +217,22 @@ public class FlightTravelAgent {
                     showPassengerInfo();
                     break;
                 case "3":
-
+                    showRute();
                     break;
                 case "4":
-
+                    String newRoute = input("Masukan rute penerbangan baru");
+                    addRute(newRoute);
                     break;
                 case "5":
-
+                    showRute();
+                    String routeNumToedit = input("Pilih nomor rute yang akan diedit");
+                    String updateRoute = input("Masukan rute baru");
+                    editRute(Integer.parseInt(routeNumToedit), updateRoute);
                     break;
                 case "6":
-
+                    showRute();
+                    String routeNumToRemove = input("Pilih nomor rute yang akan dihapus");
+                    removeRute(Integer.parseInt(routeNumToRemove));
                     break;
                 case "7":
                     showPassengerInfo();
