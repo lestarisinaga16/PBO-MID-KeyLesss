@@ -3,15 +3,14 @@ import java.util.Scanner;
 public class FlightTravelAgent {
 
     public static String[] rute = new String[3];
-    public static String[][] passengerInfo = new String[10][10];
-    ;// Informasi pemesan: nama, tanggal lahir, nomor KTP
+    public static String[][] passengerInfo = new String[10][6];;// Informasi pemesan: nama, tanggal lahir, nomor KTP
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         //Menambahkan beberapa rute awal
-        addRute {"Jakarta - Surabaya"} ;
-        addRute {"Bandung - bali"} ;
-        addRute {"Medan - Bali"} ;
+        addRute {"Jakarta - Surabaya"};
+        addRute {"Bandung - bali"};
+        addRute {"Medan - Bali"};
 
         showMainMenu();
     }
